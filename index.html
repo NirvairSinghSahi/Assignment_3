@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Soccer Quiz</h1>
+    </header>
+    <main>
+        <!-- Login Form -->
+        <div id="login" class="login-form-container">
+            <form id="login-form" onsubmit="return login();">
+                <h2>Login with given details</h2>
+                <p>soccerfan ; worldcup2022</p>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-error" class="error-message" style="display: none;">Invalid username or password.</p>
+            </form>
+        </div>
+
+        <!-- Home Page with Category Cards -->
+        <div id="home" class="container" style="display: none;">
+            <div class="category-card" onclick="startQuiz('worldCup')">
+                <h2>2022 World Cup</h2>
+            </div>
+            <div class="category-card" onclick="startQuiz('guessPlayer')">
+                <h2>Guess the Player</h2>
+            </div>
+            <div class="category-card" onclick="startQuiz('soccerClubs')">
+                <h2>Soccer Clubs</h2>
+            </div>
+            <div class="category-card" onclick="startQuiz('soccerRecords')">
+                <h2>Soccer Records</h2>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz" style="display: none;">
+            <div class="progress">
+                <h2 id="quiz-title"></h2>
+                <p>Question <span id="current-question-number">1</span> of 25</p>
+            </div>
+            <div id="question-container">
+                <h3 id="question-text"></h3>
+                <div id="options-container" class="options-container"></div>
+            </div>
+            <button id="next-button" onclick="nextQuestion()" style="display: none;">Next</button>
+        </div>
+
+        <!-- Result Section -->
+        <div id="result" style="display: none;">
+            <h2>Quiz Results</h2>
+            <div class="score-cards">
+                <div class="score-card">
+                    <h3>Correct Answers</h3>
+                    <p id="correct-answers"></p>
+                </div>
+                <div class="score-card">
+                    <h3>Incorrect Answers</h3>
+                    <p id="incorrect-answers"></p>
+                </div>
+                <div class="score-card">
+                    <h3>Total Questions</h3>
+                    <p>25</p>
+                </div>
+                <div class="score-card">
+                    <h3>Percentage Score</h3>
+                    <p id="percentage-score"></p>
+                </div>
+            </div>
+            <button onclick="returnHome()">Return to Home</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
